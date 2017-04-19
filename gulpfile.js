@@ -12,16 +12,16 @@ const watch = require("gulp-watch");
 /////////////////////////////
 
 gulp.task('sass', function () {
-    return gulp.src('./app/source/scss/**/*.scss')
+    return gulp.src('./app/source/**/*.scss')
         .pipe(compileSass.sync().on('error', compileSass.logError))
         .pipe(minifyCSS())
-        .pipe(gulp.dest('./app/build/css'));
+        .pipe(gulp.dest('./app/build/'));
 });
 
 gulp.task('compressJS', function() {
-    return gulp.src('./app/source/js/**/*.js')
+    return gulp.src('./app/source/**/*.js')
         .pipe(minifyJS())
-        .pipe(gulp.dest('./app/build/js'))
+        .pipe(gulp.dest('./app/build/'))
 });
 
 gulp.task('minifyHTML', function() {
@@ -40,9 +40,9 @@ gulp.task('static', function() {
 /////////////////////////////
 
 gulp.task('compressJSWatch', function() {
-    return watch('./app/source/js/**/*.js')
+    return watch('./app/source/**/*.js')
         .pipe(minifyJS())
-        .pipe(gulp.dest('./app/build/js'))
+        .pipe(gulp.dest('./app/build/'))
 });
 
 gulp.task('minifyHTMLWatch', function() {
@@ -51,7 +51,7 @@ gulp.task('minifyHTMLWatch', function() {
         .pipe(gulp.dest('./app/build/'));
 });
 gulp.task('sassWatch', function () {
-    gulp.watch('./source/scss/**/*.scss', ['sass']);
+    gulp.watch('./source/**/*.scss', ['sass']);
 });
 gulp.task('static', function() {
     return watch('./app/source/static/**/*')
