@@ -1,0 +1,1 @@
+"use strict";angular.module("musicApp",["ngRoute","musicApp.version"]).config(["$locationProvider","$routeProvider",function(i,o){i.hashPrefix("!")}]);
