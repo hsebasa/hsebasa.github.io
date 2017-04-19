@@ -29,6 +29,10 @@ gulp.task('minifyHTML', function() {
         .pipe(minifyHTML({collapseWhitespace: true}))
         .pipe(gulp.dest('./app/build/'));
 });
+gulp.task('static', function() {
+    return gulp.src('./app/source/static/**/*')
+        .pipe(gulp.dest('./app/build/static'));
+});
 
 
 /////////////////////////////
@@ -49,8 +53,10 @@ gulp.task('minifyHTMLWatch', function() {
 gulp.task('sassWatch', function () {
     gulp.watch('./source/scss/**/*.scss', ['sass']);
 });
-
-
+gulp.task('static', function() {
+    return watch('./app/source/static/**/*')
+        .pipe(gulp.dest('./app/build/static'));
+});
 /////////////////////////////
 // SERVER
 /////////////////////////////
@@ -65,7 +71,7 @@ gulp.task('createServer', function() {
         }));
 });
 
-gulp.task('default', ['sassWatch', 'sass',
-                      'compressJSWatch', 'minifyHTMLWatch',
-                      'compressJS', 'minifyHTML',
-                      'createServer']);
+gulp.task('default', ['sassWatch', 'sass', 'static',
+    'compressJSWatch', 'minifyHTMLWatch',
+    'compressJS', 'minifyHTML',
+    'createServer']);
