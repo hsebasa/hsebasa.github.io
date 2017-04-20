@@ -9,10 +9,11 @@ angular.module('musicApp.startPage', ['ngRoute'])
     });
 
 }])
-.controller('startPageCtrl', ['globalData', '$http' , '$scope', function(globalData, $http, $scope) {
+.controller('startPageCtrl', ['globalData', '$http' , 'linkData', '$scope', function(globalData, $http, linkData, $scope) {
 
-.controller('startPageCtrl', ['linkData', function(linkData) {
     var self = this;
     self.selectedItem = linkData.selectedItem;
+
+
 }]
 );
