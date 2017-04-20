@@ -3,7 +3,34 @@
 <div ng-controller="startPageCtrl as ctrl">
     <div id="searchBar">This is the search bar</div>
 
-    <div id="searchResults">This is the field that shows the search results</div>
+    <div class="modalBox"
+         ng-if="ctrl.selectedItem.info.type === 'album'">
+        <!--
+            This is a modal div. It is shown only when property selectedItem is set to 'album'.
+        -->
+        <ng-include src=" 'albumPage/albumPage.html' "></ng-include>
+    </div>
+    <div class="modalBox"
+         ng-if="ctrl.selectedItem.info.type === 'track'">
+        <!--
+            This is a modal div. It is shown only when property selectedItem is set to 'track.
+        -->
+        <ng-include src=" 'trackPage/trackPage.html' "></ng-include>
+    </div>
+    <div class="modalBox"
+         ng-if="ctrl.selectedItem.info.type === 'artist'">
+        <!--
+            This is a modal div. It is shown only when property selectedItem is set to 'artist.
+        -->
+        <ng-include src=" 'artistPage/artistPage.html' "></ng-include>
+    </div>
+
+
+    <div id="searchResults">
+        This is the field that shows the search results
+        <music-info-box information="{resultType: 'track', title: 'Sonia Matrix'}"></music-info-box>
+        end
+    </div>
 </div>
 
 <div id="footer">This is the footer</div>

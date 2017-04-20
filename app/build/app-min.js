@@ -1,1 +1,1 @@
-"use strict";angular.module("musicApp",["ngRoute","musicApp.resources","musicApp.version","musicApp.startPage"]).config(["$locationProvider","$routeProvider",function(r,e){r.hashPrefix(""),e.otherwise({redirectTo:"/start"})}]);
+"use strict";angular.module("musicApp",["ngRoute","musicApp.version","musicApp.startPage","musicApp.directives","musicApp.Pages"]).config(["$locationProvider","$routeProvider",function(e,i){e.hashPrefix(""),i.otherwise({redirectTo:"/start"})}]).factory("linkData",[function(){return{selectedItem:{info:null}}}]);
