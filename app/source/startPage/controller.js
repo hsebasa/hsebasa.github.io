@@ -1,3 +1,4 @@
+'use strict';
 
 angular.module('musicApp.startPage', ['ngRoute'])
 

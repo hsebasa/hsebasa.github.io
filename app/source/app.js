@@ -4,7 +4,8 @@
 angular.module('musicApp', [
     'ngRoute',
     'musicApp.version',
-    'musicApp.startPage'
+    'musicApp.startPage',
+    'musicApp.directives'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('');
