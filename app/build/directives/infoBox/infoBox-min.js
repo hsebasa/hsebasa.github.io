@@ -1,0 +1,1 @@
+angular.module("musicApp.directives").directive("musicInfoBox",["linkData",function(i){function e(e,n){e.spanInformation=function(){i.selectedAlbum.info={title:"In Paradisum"}}}return{link:e,scope:{information:"="},templateUrl:"directives/templates/infoBoxTemplate.html"}}]);

@@ -3,6 +3,7 @@
 <div ng-controller="startPageCtrl as ctrl">
     <div id="searchBar">This is the search bar</div>
 
+    <ng-include src=" 'albumPage/albumPage.html' "></ng-include>
     <div id="searchResults">
         This is the field that shows the search results
         <music-info-box information="{resultType: 'track', title: 'Sonia Matrix'}"></music-info-box>

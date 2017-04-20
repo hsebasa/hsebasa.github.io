@@ -1,0 +1,1 @@
+"use strict";angular.module("musicApp.albumPage",["ngRoute"]).controller("albumPageCtrl",["$scope","linkData",function(e,l){this.print=function(){console.log(e.selectedAlbum,l.selectedAlbum)},e.selectedAlbum=l.selectedAlbum}]);

@@ -2,8 +2,11 @@
 
 angular.module('musicApp.directives')
 
-.directive('musicInfoBox', [function(){
+.directive('musicInfoBox', ['linkData', function(linkData){
     function link(scope, element){
+        scope.spanInformation = function(){
+            linkData.selectedAlbum.info = {title: 'In Paradisum'};
+        }
     }
     return {
         link: link,
