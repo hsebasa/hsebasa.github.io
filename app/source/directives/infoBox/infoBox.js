@@ -5,7 +5,7 @@ angular.module('musicApp.directives')
 .directive('musicInfoBox', ['linkData', function(linkData){
     function link(scope, element){
         scope.spanInformation = function(){
-            linkData.selectedAlbum.info = {title: 'In Paradisum'};
+            linkData.selectedItem.info = {title: 'In Paradisum', type: 'album'};
         }
     }
     return {

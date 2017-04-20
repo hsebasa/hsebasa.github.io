@@ -1,1 +1,1 @@
-angular.module("musicApp.directives").directive("musicInfoBox",["linkData",function(i){function e(e,n){e.spanInformation=function(){i.selectedAlbum.info={title:"In Paradisum"}}}return{link:e,scope:{information:"="},templateUrl:"directives/templates/infoBoxTemplate.html"}}]);
+angular.module("musicApp.directives").directive("musicInfoBox",["linkData",function(e){function t(t,i){t.spanInformation=function(){e.selectedItem.info={title:"In Paradisum",type:"album"}}}return{link:t,scope:{information:"="},templateUrl:"directives/templates/infoBoxTemplate.html"}}]);

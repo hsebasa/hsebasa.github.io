@@ -6,20 +6,15 @@ angular.module('musicApp', [
     'musicApp.version',
     'musicApp.startPage',
     'musicApp.directives',
-    'musicApp.albumPage'
+    'musicApp.Pages'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('');
     $routeProvider.otherwise({redirectTo: '/start'});
 }])
 .factory('linkData', [function(){
-    var data = {
-        selectedAlbum: {
-            info: {}
-        }
-    };
     return {
-        selectedAlbum: {
+        selectedItem: {
             info: null
         }
     }

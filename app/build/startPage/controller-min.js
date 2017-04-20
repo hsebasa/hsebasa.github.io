@@ -1,1 +1,1 @@
-"use strict";angular.module("musicApp.startPage",["ngRoute"]).config(["$routeProvider",function(t){t.when("/start",{templateUrl:"startPage/startPage.html",controller:"startPageCtrl"})}]).controller("startPageCtrl",[function(){}]);
+"use strict";angular.module("musicApp.startPage",["ngRoute"]).config(["$routeProvider",function(t){t.when("/start",{templateUrl:"startPage/startPage.html"})}]).controller("startPageCtrl",["linkData",function(t){this.selectedItem=t.selectedItem}]);
