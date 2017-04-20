@@ -53,7 +53,7 @@ gulp.task('minifyHTMLWatch', function() {
 gulp.task('sassWatch', function () {
     gulp.watch('./source/**/*.scss', ['sass']);
 });
-gulp.task('static', function() {
+gulp.task('staticWatch', function() {
     return watch('./app/source/static/**/*')
         .pipe(gulp.dest('./app/build/static'));
 });
@@ -71,7 +71,7 @@ gulp.task('createServer', function() {
         }));
 });
 
-gulp.task('default', ['sassWatch', 'sass', 'static',
+gulp.task('default', ['sassWatch', 'sass', 'static', 'staticWatch',
     'compressJSWatch', 'minifyHTMLWatch',
     'compressJS', 'minifyHTML',
     'createServer']);
