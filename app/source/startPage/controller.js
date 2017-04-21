@@ -9,9 +9,8 @@ angular.module('musicApp.startPage', ['ngRoute'])
     });
 
 }])
-.controller('startPageCtrl', ['globalData', '$mdDialog', '$http', '$scope', function(globalData, $mdDialog, $http, $scope) {
+.controller('startPageCtrl', ['globalData', '$mdDialog', '$http', '$scope', '$timeout', function(globalData, $mdDialog, $http, $scope, $timeout) {
     var self = this;
-    $scope.selectedItem = null;
     $scope.itemsInformation = [
         {
             'title': 'Juancho'
@@ -22,17 +21,19 @@ angular.module('musicApp.startPage', ['ngRoute'])
     ];
 
     $scope.showView = function (selectedItem, type){
-        $scope.selectedItem = selectedItem;
+        var info = {
+            selectedItem: selectedItem,
+            selectedItemInfo: null,
+            percentLoaded: 0
+        };
+        var newScope = $scope.$new(true);
+        newScope.info = info;
         $mdDialog.show({
                 clickOutsideToClose: true,
-
-                scope: $scope,        // use parent scope in template
-                preserveScope: true,  // do not forget this if use parent scope
-
-                templateUrl: 'templates/' + type + 'Page.html',
-                onRemoving: function(){
-                    $scope.selectedItem=null
-                }
+                scope: newScope,        // use parent scope in template
+                preserveScope: false,
+                plain: true,
+                templateUrl: 'templates/' + type + 'Page.html'
             }
         )
 
