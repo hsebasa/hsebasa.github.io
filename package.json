@@ -28,5 +28,8 @@
     "postupdate-deps": "bower update",
     "prestart": "npm install",
     "start": "gulp"
+  },
+  "dependencies": {
+    "angular-material": "^1.1.4"
   }
 }

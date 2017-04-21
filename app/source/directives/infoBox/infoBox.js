@@ -2,16 +2,17 @@
 
 angular.module('musicApp.directives')
 
-.directive('musicInfoBox', ['linkData', function(linkData){
+.directive('musicInfoBox', [function(){
     function link(scope, element){
         scope.spanInformation = function(){
-            linkData.selectedItem.info = {title: 'In Paradisum', type: 'album'};
+            scope.setSelectedItem({itemInfo: {title: 'In Paradisum'}, type: 'artist'});
         }
     }
     return {
         link: link,
         scope: {
-            information: '='   // Information about the single or the artist or the album to model.
+            information: '=',   // Information about the single or the artist or the album to model.
+            setSelectedItem: '&'
         },
         templateUrl: 'directives/templates/infoBoxTemplate.html'
     }
