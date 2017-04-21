@@ -11,14 +11,15 @@ angular.module('musicApp.startPage', ['ngRoute'])
 }])
 .controller('startPageCtrl', ['globalData', '$mdDialog', '$http', '$scope', '$timeout', function(globalData, $mdDialog, $http, $scope, $timeout) {
     var self = this;
-    $scope.itemsInformation = [
-        {
-            'title': 'Juancho'
-        },
-        {
-            'title': 'Perez'
-        }
-    ];
+    self.spotifyApi = globalData;
+    self.searchText = null;
+    self.progress = 0;
+    self.progressUpdate = function(progress){
+        self.progress = 100.0 * progress.loaded / progress.total;
+    };
+    self.search = function(){
+        globalData.search_item(self.searchText, self.progressUpdate);
+    };
 
     $scope.showView = function (selectedItem, type){
         var info = {
@@ -28,6 +29,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
         };
         var newScope = $scope.$new(true);
         newScope.info = info;
+        console.log('templates/' + type + 'Page.html');
         $mdDialog.show({
                 clickOutsideToClose: true,
                 scope: newScope,        // use parent scope in template

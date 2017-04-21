@@ -14,7 +14,7 @@ angular.module('musicApp.directives')
             information: '=',   // Information about the single or the artist or the album to model.
             setSelectedItem: '&'
         },
-        templateUrl: 'templates/infoBoxTemplate.html'
+        templateUrl: 'templates/infoBoxTrackTemplate.html'
     }
 }]
 )
