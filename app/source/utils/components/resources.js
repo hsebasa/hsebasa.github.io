@@ -114,6 +114,12 @@ angular.module('musicApp.resources', [])
 
             var self  =  this;
 
+            if (item.length == 0){
+                this.results = {'albums': null,
+                    'artists': null,
+                    'track': null}
+            }
+            
             this.get_album_by_name(item, this.albums_info);
             this.get_artist_by_name(item, this.artists_info);
             this.get_track_by_name(item, this.tracks_info)
