@@ -1,1 +1,0 @@
-angular.module("musicApp.directives").directive("musicInfoBox",[function(){function e(e,t){e.spanInformation=function(){e.setSelectedItem({itemInfo:{title:"In Paradisum"},type:"artist"})}}return{link:e,scope:{information:"=",setSelectedItem:"&"},templateUrl:"templates/infoBoxTemplate.html"}}]);

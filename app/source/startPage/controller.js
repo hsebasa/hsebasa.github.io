@@ -10,9 +10,16 @@ angular.module('musicApp.startPage', ['ngRoute'])
 
 }])
 .controller('startPageCtrl', ['globalData', '$mdDialog', '$http', '$scope', function(globalData, $mdDialog, $http, $scope) {
-
     var self = this;
     $scope.selectedItem = null;
+    $scope.itemsInformation = [
+        {
+            'title': 'Juancho'
+        },
+        {
+            'title': 'Perez'
+        }
+    ];
 
     $scope.showView = function (selectedItem, type){
         $scope.selectedItem = selectedItem;

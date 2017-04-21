@@ -1,1 +1,0 @@
-"use strict";angular.module("musicApp.albumPage",["ngRoute"]).controller("albumPageCtrl",["$scope","linkData",function(e,l){e.selectedAlbum=l.selectedItem}]);

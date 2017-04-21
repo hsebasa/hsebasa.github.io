@@ -7,21 +7,10 @@ angular.module('musicApp', [
     'musicApp.resources',
     'musicApp.version',
     'musicApp.startPage',
-    'musicApp.directives',
-    'musicApp.Pages'
+    'musicApp.directives'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('');
     $routeProvider.otherwise({redirectTo: '/start'});
 }])
-.factory('linkData', [function(){
-    return {
-        selectedItem: {
-            info: null
-        },
-        setSelectedItem: function(info){
-            this.selectedItem.info = info
-        }
-    }
-}]
-);
+;

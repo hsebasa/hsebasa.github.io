@@ -3,13 +3,12 @@
 <div ng-controller="startPageCtrl as ctrl">
     <div id="searchBar">This is the search bar</div>
 
-    <div id="searchResults">
-        This is the field that shows the search results
+    <div id="searchResults"
+         ng-repeat="item in itemsInformation">
         <artist-info-box
                 set-selected-item="showView(itemInfo, type)"
-                information="{title: 'Jalisco'}">
+                information="item">
         </artist-info-box>
-        end
     </div>
 </div>
 
