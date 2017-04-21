@@ -9,11 +9,34 @@ angular.module('musicApp.startPage', ['ngRoute'])
     });
 
 }])
-.controller('startPageCtrl', ['globalData', '$http' , 'linkData', '$scope', function(globalData, $http, linkData, $scope) {
-
+.controller('startPageCtrl', ['globalData', '$mdDialog', '$http', '$scope', function(globalData, $mdDialog, $http, $scope) {
     var self = this;
-    self.selectedItem = linkData.selectedItem;
+    $scope.selectedItem = null;
+    $scope.itemsInformation = [
+        {
+            'title': 'Juancho'
+        },
+        {
+            'title': 'Perez'
+        }
+    ];
 
+    $scope.showView = function (selectedItem, type){
+        $scope.selectedItem = selectedItem;
+        $mdDialog.show({
+                clickOutsideToClose: true,
+
+                scope: $scope,        // use parent scope in template
+                preserveScope: true,  // do not forget this if use parent scope
+
+                templateUrl: 'templates/' + type + 'Page.html',
+                onRemoving: function(){
+                    $scope.selectedItem=null
+                }
+            }
+        )
+
+    }
 
 }]
 );
