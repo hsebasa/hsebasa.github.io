@@ -22,7 +22,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
                 scope: $scope,        // use parent scope in template
                 preserveScope: true,  // do not forget this if use parent scope
 
-                templateUrl: '../' + type + 'Page/' + type + 'Page.html'
+                templateUrl: 'templates/' + type + 'Page.html'
             }
         )
 
