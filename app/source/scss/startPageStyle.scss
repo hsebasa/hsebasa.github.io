@@ -1,16 +1,17 @@
 @import "utilities";
 
+html, body {
+  background-color: #333441;
+}
 
-@mixin gradient-color($bcolor, $ucolor) {
-  background: $bcolor; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient($ucolor, $bcolor); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient($ucolor, $bcolor); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient($ucolor, $bcolor); /* For Firefox 3.6 to 15 */
-  background: linear-gradient($ucolor, $bcolor); /* Standard syntax */
+$break-point-phones: 1000px;
+@media only screen and (min-width: $break-point-phones) {
+  @import "desktop/startPage";
+  @import "desktop/boxStyles";
 }
 
 
-#header {
-  @include gradient-color(#b2455d, #ce4283);
-  height: 200px;
+@media only screen and (max-width: $break-point-phones) {
+  @import "phone/startPage";
 }
+
