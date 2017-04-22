@@ -7,40 +7,43 @@
         <span>Powered by spotify</span>
     </div>
 
-    <div ng-controller="startPageCtrl as ctrl">
+    <div ng-controller="startPageCtrl as ctrl" ng-init="ctrl.focus()">
         <div id="searchBar">
-            <input ng-model="ctrl.searchText" type="text">
+            <input ng-keypress="ctrl.pressedKey($event)" id="searchBarInput" ng-model="ctrl.searchText" type="text">
             <button ng-click="ctrl.search()">Search</button>
         </div>
 
-        <adjust-image image-properties="{width: '282px', height: '393px', url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiXZQQSTNlllew7DEaGN3xm8ON_NfbtO4xn9mo9GRBQ3hBGYX7'}"
-                      width="50px" height="50px">
-        </adjust-image>
-
         <div id="results">
-            <div id="zeroResults">
+            <div ng-show="!(ctrl.spotifyApi.results.artists.json_data.length > 0) && !(ctrl.spotifyApi.results.tracks.json_data.length > 0) && !(ctrl.spotifyApi.results.albums.json_data.length > 0)"
+                 id="zeroResults">
                 <img ng-src="static/Images/Magnify@2x.png">
                 <span>Your results will appear here</span>
             </div>
 
-            <h2>Artists</h2>
-            <span id="searchResultsArtist">
+            <span class="searchResults">
+                <h1 ng-show="ctrl.spotifyApi.results.artists.json_data.length > 0">
+                    Artists
+                </h1>
                 <artist-info-box
                         ng-repeat="(i ,item) in ctrl.spotifyApi.results.artists.json_data"
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </artist-info-box>
             </span>
-            <h2>Tracks</h2>
-            <span id="searchResultsTrack">
+            <span class="searchResults">
+                <h1 ng-show="ctrl.spotifyApi.results.tracks.json_data.length > 0">
+                    Tracks
+                </h1>
                 <track-info-box
                         ng-repeat="(i ,item) in ctrl.spotifyApi.results.tracks.json_data"
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </track-info-box>
             </span>
-            <h2>Albums</h2>
-            <span id="searchResultsAlbum">
+            <span class="searchResults">
+                <h1 ng-show="ctrl.spotifyApi.results.albums.json_data.length > 0">
+                    Albums
+                </h1>
                 <album-info-box
                         ng-repeat="(i ,item) in ctrl.spotifyApi.results.albums.json_data"
                         set-selected-item="showView(itemInfo, type)"
@@ -50,5 +53,5 @@
         </div>
     </div>
 
-    <div id="footer">Designed by Sebastian Álvarez - Powered by spotify</div>
+    <div id="footer">Designed by Geek Label - Powered by spotify</div>
 </div>

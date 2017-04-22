@@ -11,6 +11,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
 }])
 .controller('startPageCtrl', ['globalData', '$mdDialog', '$http', '$scope', '$timeout', function(globalData, $mdDialog, $http, $scope, $timeout) {
     var self = this;
+
     self.spotifyApi = globalData;
     self.searchText = null;
     self.progress = 0;
@@ -18,7 +19,20 @@ angular.module('musicApp.startPage', ['ngRoute'])
         self.progress = 100.0 * progress.loaded / progress.total;
     };
     self.search = function(){
+        $('html,body').animate({
+                scrollTop: $("#results").offset().top},
+            'slow');
         globalData.search_item(self.searchText, self.progressUpdate);
+    };
+
+    self.focus = function() {
+        document.getElementById('searchBarInput').focus();
+    };
+
+    self.pressedKey = function(keyEvent){
+        if (keyEvent.which === 13){
+            self.search();
+        }
     };
 
     $scope.showView = function (selectedItem, type){
