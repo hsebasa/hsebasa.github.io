@@ -6,3 +6,20 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+
+@mixin gradient-color($bcolor, $ucolor) {
+  background: $bcolor; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($ucolor, $bcolor); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($ucolor, $bcolor); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($ucolor, $bcolor); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($ucolor, $bcolor); /* Standard syntax */
+}
+
+
+@mixin symmetric-rounded-border($radius){
+  border-radius: $radius $radius $radius $radius;
+  -moz-border-radius: $radius $radius $radius $radius;
+  -webkit-border-radius: $radius $radius $radius $radius;
+  border: 0 solid #000000;
+}
