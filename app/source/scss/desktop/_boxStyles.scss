@@ -8,7 +8,8 @@ $results-per-line: round(($results-width - $box-horizontal-sep)/($box-width + $b
 $box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-width + $box-horizontal-sep))/2;
 
 
-.infoBoxArtist {
+.infoBox {
+  @include symmetric-rounded-border(4px);
   //@extend .constantBoxSize;
   display: inline-block;
   background-color: white;
@@ -17,11 +18,30 @@ $box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-wi
   height: 250px;
   margin-top: 40px;
 
+  -webkit-box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
+  -moz-box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
+  box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
+
+  filter: brightness(80%);
+
+  *{
+    cursor:pointer;
+  }
+  span {
+    padding-top: 15px;
+    padding-left: 8px;
+    display: inline-block;
+    width: calc(#{$box-width} - 20px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   img {
+    @include symmetric-rounded-border(4px);
     overflow: hidden;
   }
 }
-#searchResultsArtist {
+.searchResults {
   display: block;
   margin-left: $box-lateral;
 }

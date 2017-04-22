@@ -12,7 +12,7 @@ $results-width: 1000px;
 
 #header {
   @include gradient-color(#b2455d, #ce4283);
-  $image-logo-width: 45%;
+  $image-logo-width: 450px;
   $arrow-width: 30px;
 
   height: 420px;
@@ -20,7 +20,7 @@ $results-width: 1000px;
   #image-logo {
     width: $image-logo-width;
     position: absolute;
-    left: (100% - $image-logo-width)/2;
+    left: calc((100% - #{$image-logo-width})/2);
     top: 50px;
   }
 
@@ -82,13 +82,24 @@ $results-width: 1000px;
 
 #results {
   position: relative;
+  display: block;
   background-color: #383a49;
   width: $results-width;
+  left: calc((100% - #{$results-width}) / 2);
+  min-height: 350px;
+  padding-bottom: 20px;
+
+  h1 {
+    padding-top: 20px;
+    margin-bottom: -10px;
+    color: #ffffff;
+  }
 
   $magnify-width: 250px;
   #zeroResults {
     top: 100px;
     position: relative;
+    display: block;
     width: $magnify-width;
     left: calc((100% - #{$magnify-width})/2);
     text-align: center;
@@ -105,4 +116,13 @@ $results-width: 1000px;
       color: white;
     }
   }
+}
+
+
+#footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 10px;
+  color: white;
 }
