@@ -46,7 +46,6 @@ angular.module('musicApp.startPage', ['ngRoute'])
             percentLoaded: 0
         };
         var newScope = $scope.$new(true);
-        console.log(selectedItem.id);
 
         if (type == 'artist'){
             self.spotifyApi.get_albums_by_artist(selectedItem.id, info.selectedItemInfo, self.progressUpdate)
