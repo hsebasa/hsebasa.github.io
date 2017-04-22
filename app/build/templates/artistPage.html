@@ -1,1 +1,1 @@
-<div>Artist <span>{{ info.selectedItem.name }}</span></div>
+<div class="artists"><div class="header"><img ng-src="{{info.selectedItem.images[0].url}}"><p>Artist</p></div><span>{{ info.selectedItem.name }}</span><div ng-repeat="(key, value) in info.selectedItemInfo.data.items"><img ng-src="{{value.images[1].url}}"><p>{{value.name}}</p></div></div>
