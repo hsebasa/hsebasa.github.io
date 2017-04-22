@@ -11,16 +11,14 @@ $box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-wi
 .infoBoxArtist {
   //@extend .constantBoxSize;
   display: inline-block;
-  background-color: blue;
+  background-color: white;
   margin-left: $box-horizontal-sep;
   width: $box-width;
   height: 250px;
   margin-top: 40px;
 
   img {
-    //width: 100%;
     overflow: hidden;
-    height: 70%
   }
 }
 #searchResultsArtist {

@@ -1,0 +1,11 @@
+<div ng-style="{width: width, height: height, overflow: 'hidden', display: 'block'}">
+    <img ng-if="pf(image2Draw.width)/pf(image2Draw.height) <= pf(width)/pf(height)"
+         class="higherImage"
+         ng-src={{image2Draw.url}}>
+
+    <img ng-if="pf(image2Draw.width)/pf(image2Draw.height) > pf(width)/pf(height)"
+         class="widerImage"
+         ng-style="{'margin-left': ((pf(width)-pf(image2Draw.width)*pf(height)/pf(image2Draw.height))/2) + 'px'}"
+         ng-src={{image2Draw.url}}>
+
+</div>
