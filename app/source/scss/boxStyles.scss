@@ -4,18 +4,6 @@
   background-color: yellow;
 }
 
-div.polaroid {
-  width: 50%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  float: right;
-}
-
-div.container {
-  text-align: center;
-}
-
-
 $properties: (margin, paddding, border);
 
 @mixin set_all_properties($value){
@@ -25,16 +13,19 @@ $properties: (margin, paddding, border);
   $property: $value;
 }
 
-.artists div, img, p, spam, ul, li{
-
+.header div {
   @include set_all_properties(0px);
-
 }
 
 
-.artists div {
-  padding-bottom: 10px;
+.header h2 {
+  padding-left: 10px;
+  font-size: 20px;
+  color: #555555 ;
+  border-bottom: 2px dashed #ddd;
+
 }
+
 
 .content-artist div, img, p, ul, li, table, tr, td {
 
@@ -42,11 +33,28 @@ $properties: (margin, paddding, border);
 
 }
 
+#style-1::-webkit-scrollbar
+{
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #b2455d;
+}
+
+.content-artist {
+  overflow-y: scroll;
+}
+
 .content-artist ul {
   list-style-type: none;
   margin: 0 auto 0 auto;
   padding: 0;
-  overflow: hidden;
+/*  overflow: hidden;*/
   //background-color: blanchedalmond;
 
 }
@@ -79,12 +87,27 @@ $properties: (margin, paddding, border);
   font-variant: normal;
   font-weight: bold;
   line-height: 26.4px;
-  color: crimson;
+  color: #b2455d;
 }
 
 
 
+.container {
+  position: relative;
+}
 
+.container p {
+  color: floralwhite;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 18px;
+}
 
 
 
