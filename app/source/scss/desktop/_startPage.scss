@@ -84,7 +84,6 @@ $results-width: 1000px;
   position: relative;
   background-color: #383a49;
   width: $results-width;
-  left: calc((100% - #{$results-width}) / 2);
 
   $magnify-width: 250px;
   #zeroResults {

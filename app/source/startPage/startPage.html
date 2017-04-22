@@ -20,29 +20,29 @@
             </div>
 
             <h2>Artists</h2>
-            <div id="searchResultsArtist"
-                 ng-repeat="(i ,item) in ctrl.spotifyApi.results.artists.json_data">
+            <span id="searchResultsArtist">
                 <artist-info-box
+                        ng-repeat="(i ,item) in ctrl.spotifyApi.results.artists.json_data"
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </artist-info-box>
-            </div>
+            </span>
             <h2>Tracks</h2>
-            <div id="searchResultsTrack"
-                 ng-repeat="(i ,item) in ctrl.spotifyApi.results.tracks.json_data">
+            <span id="searchResultsTrack">
                 <track-info-box
+                        ng-repeat="(i ,item) in ctrl.spotifyApi.results.tracks.json_data"
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </track-info-box>
-            </div>
+            </span>
             <h2>Albums</h2>
-            <div id="searchResultsAlbum"
-                 ng-repeat="(i ,item) in ctrl.spotifyApi.results.albums.json_data">
+            <span id="searchResultsAlbum">
                 <album-info-box
+                        ng-repeat="(i ,item) in ctrl.spotifyApi.results.albums.json_data"
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </album-info-box>
-            </div>
+            </span>
         </div>
     </div>
 

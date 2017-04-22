@@ -1,2 +1,36 @@
+@import "../utilities";
+@import "startPage";
 
+
+$box-width: 210px;
+$box-horizontal-sep: 15px;
+$results-per-line: round(($results-width - $box-horizontal-sep)/($box-width + $box-horizontal-sep+10));
+$box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-width + $box-horizontal-sep))/2;
+
+
+.infoBoxArtist {
+  //@extend .constantBoxSize;
+  display: inline-block;
+  background-color: blue;
+  margin-left: $box-horizontal-sep;
+  width: $box-width;
+  height: 250px;
+  margin-top: 40px;
+
+  img {
+    //width: 100%;
+    overflow: hidden;
+    height: 70%
+  }
+}
+#searchResultsArtist {
+  display: block;
+  margin-left: $box-lateral;
+}
+
+.infoBoxAlbum {
+  display: inline;
+  text-align: center;
+  width: 200px;
+}
 
