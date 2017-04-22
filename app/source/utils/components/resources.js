@@ -149,10 +149,12 @@ angular.module('musicApp.resources', [])
 
         search_item : function(item, progressHandler){
             var self  =  this;
+
+            if (item == null){
+                return ;
+            }
+
             if (item.length == 0){
-                this.results = {'albums': null,
-                                'artists': null,
-                                'tracks': null}
                 return ;
             }
             
@@ -168,8 +170,8 @@ angular.module('musicApp.resources', [])
                             'artists': self.artists_info,
                             'tracks': self.tracks_info}
         },
-        results: {'albums': null,
-                  'artists': null,
-                  'tracks': null}
+        results: {'albums': [],
+                  'artists': [],
+                  'tracks': []}
     }
 }]);

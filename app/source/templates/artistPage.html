@@ -5,14 +5,30 @@
     <div class="header">
         <img ng-src="{{info.selectedItem.images[0].url}}">
         <p>Artist</p>
+        <span>{{ info.selectedItem.name }} </span>
     </div>
 
-<span>{{ info.selectedItem.name }} </span>
+    <div class="content-artist">
 
-<div ng-repeat="(key, value) in info.selectedItemInfo.data.items">
-    <img ng-src="{{value.images[1].url}}">
-    <p>{{value.name}}</p>
-</div>
+    <table>
 
+        <tr ng-repeat="(key, value) in info.selectedItemInfo.data.items">
+            <td> <p> {{value.name}} </p> </td>
+            <td><img ng-src="{{value.images[1].url}}"></td>
+        </tr>
+
+    </table>
+
+    </div>
+
+
+<!--    <div class="content-artist">
+        <ul ng-repeat="(key, value) in info.selectedItemInfo.data.items">
+            <li>
+                <a><img ng-src="{{value.images[1].url}}">
+                <p>{{value.name}}</p></a>
+            </li>
+        </ul>
+    </div>-->
 
 </div>
