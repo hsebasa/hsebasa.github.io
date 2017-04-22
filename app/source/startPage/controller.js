@@ -38,10 +38,22 @@ angular.module('musicApp.startPage', ['ngRoute'])
     $scope.showView = function (selectedItem, type){
         var info = {
             selectedItem: selectedItem,
-            selectedItemInfo: null,
+            selectedItemInfo: new function(){this.data={}; this.call=function(response){if (response.status == 200) {
+                this.data = response.data;
+            }else{
+                console.log('Ha ocurrido algun error, status: ' + response_status)
+            }}},
             percentLoaded: 0
         };
         var newScope = $scope.$new(true);
+        console.log(selectedItem.id);
+
+        if (type == 'artist'){
+            self.spotifyApi.get_albums_by_artist(selectedItem.id, info.selectedItemInfo, self.progressUpdate)
+
+        }
+
+
         newScope.info = info;
         console.log('templates/' + type + 'Page.html');
         $mdDialog.show({

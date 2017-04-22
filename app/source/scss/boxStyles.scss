@@ -1,0 +1,124 @@
+
+
+.infoBoxHeader {
+  background-color: yellow;
+}
+
+div.polaroid {
+  width: 50%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  float: right;
+}
+
+div.container {
+  text-align: center;
+}
+
+
+$properties: (margin, paddding, border);
+
+@mixin set_all_properties($value){
+  @each $prop in $properties {
+    #{$prop}: $value;
+  }
+  $property: $value;
+}
+
+.artists div, img, p, spam, ul, li{
+
+  @include set_all_properties(0px);
+
+}
+
+
+.artists div {
+  padding-bottom: 10px;
+}
+
+.content-artist div, img, p, ul, li, table, tr, td {
+
+  @include set_all_properties(0px);
+
+}
+
+.content-artist ul {
+  list-style-type: none;
+  margin: 0 auto 0 auto;
+  padding: 0;
+  overflow: hidden;
+  //background-color: blanchedalmond;
+
+}
+
+.content-artist table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.content-artist td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.content-artist tr:hover{background-color:#f5f5f5
+}
+
+.content-artist  img {
+  width: 100px;
+  height: 100px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  float: right;
+}
+
+.content-artist tr p {
+  font-family: Arial Black,Arial Bold,Gadget,sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  line-height: 26.4px;
+  color: crimson;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.content-artist li img {
+  width: 100px;
+  height: 100px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  float: left;
+}
+
+.content-artist a{
+  display: block;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li :hover {
+  background-color: lightblue;
+}
+
