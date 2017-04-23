@@ -91,12 +91,13 @@ $results-width: 1000px;
 
   h1 {
     padding-top: 20px;
+    font-size: 15px;
     margin-bottom: -10px;
     color: #ffffff;
   }
 
   $magnify-width: 250px;
-  #zeroResults {
+  #zeroResults, #noSearch{
     top: 100px;
     position: relative;
     display: block;

@@ -14,10 +14,15 @@
         </div>
 
         <div id="results">
-            <div ng-show="!(ctrl.spotifyApi.results.artists.json_data.length > 0) && !(ctrl.spotifyApi.results.tracks.json_data.length > 0) && !(ctrl.spotifyApi.results.albums.json_data.length > 0)"
-                 id="zeroResults">
+            <div ng-show="ctrl.state === ctrl.States.noSearch"
+                 id="noSearch">
                 <img ng-src="static/Images/Magnify@2x.png">
                 <span>Your results will appear here</span>
+            </div>
+            <div ng-show="self.state === ctrl.States.noResults"
+                 id="zeroResults">
+                <img ng-src="static/Images/Magnify@2x.png">
+                <span>No results found!</span>
             </div>
 
             <span class="searchResults">

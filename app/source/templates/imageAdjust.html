@@ -1,4 +1,6 @@
-<div ng-style="{width: width, height: height, overflow: 'hidden', display: 'block'}">
+<div ng-style="{width: width, height: height, overflow: 'hidden', display: 'block'}"
+     ng-class="{true: 'defaultImage'}[isDefaultImage]">
+
     <img ng-if="pf(image2Draw.width)/pf(image2Draw.height) <= pf(width)/pf(height)"
          class="higherImage"
          ng-src={{image2Draw.url}}>
