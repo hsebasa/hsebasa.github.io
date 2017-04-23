@@ -147,7 +147,7 @@ angular.module('musicApp.resources', [])
         },
 
 
-        search_item : function(item, progressHandler){
+        search_item : function(item, progressHandler, finishedHandler){
             var self  =  this;
 
             if (item == null){
@@ -162,13 +162,12 @@ angular.module('musicApp.resources', [])
             this.get_artist_by_name(item, this.artists_info, progressHandler);
             this.get_track_by_name(item, this.tracks_info, progressHandler);
 
-            console.log({'albums': self.albums_info,
-                'artists': self.artists_info,
-                'tracks': self.tracks_info});
-
             this.results = {'albums': self.albums_info,
                             'artists': self.artists_info,
-                            'tracks': self.tracks_info}
+                            'tracks': self.tracks_info};
+            if (!!finishedHandler){
+                finishedHandler(this.results);
+            }
         },
         results: {'albums': [],
                   'artists': [],

@@ -13,16 +13,38 @@ angular.module('musicApp.startPage', ['ngRoute'])
     var self = this;
 
     self.spotifyApi = globalData;
-    self.searchText = null;
+    self.searchText = "";
     self.progress = 0;
+    self.firstSearch = false;
+
+    self.States = {
+        noSearch: 'noSearch',
+        noResults: 'noResults',
+        searching: 'searching',
+        showingResults: 'showingResults'
+    };
+    self.state = self.States.noSearch;
+
     self.progressUpdate = function(progress){
         self.progress = 100.0 * progress.loaded / progress.total;
     };
     self.search = function(){
-        $('html,body').animate({
-                scrollTop: $("#results").offset().top},
-            'slow');
-        globalData.search_item(self.searchText, self.progressUpdate);
+        self.state = self.States.searching;
+        self.firstSearch = true;
+        $('html,body').animate(
+            {
+                scrollTop: $("#results").offset().top
+            },
+        'slow');
+        globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
+    };
+
+    self.finishedSearch = function(results){
+        if ((Object.keys(results.artists).length > 0) || (Object.keys(results.albums).length > 0) || (Object.keys(results.tracks).length > 0)){
+            self.state = self.States.showingResults;
+        } else {
+            self.state = self.States.noResults;
+        }
     };
 
     self.focus = function() {
