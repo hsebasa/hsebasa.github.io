@@ -12,7 +12,9 @@ angular.module('musicApp.directives')
             $scope.pf = parseFloat;
             if (!!$scope.imageProperties){
                 $scope.image2Draw = $scope.imageProperties;
+                $scope.isDefaultImage = false;
             } else {
+                $scope.isDefaultImage = true;
                 $scope.image2Draw = $scope.defaultImage;
             }
         },
