@@ -22,9 +22,11 @@
 
 <table>
 
-    <tr ng-repeat="(key, value) in info.selectedItemInfo.data.items">
-        <td> <p> {{value.name}} </p> </td>
-        <td><img ng-src="{{value.images[1].url}}"></td>
+    <tr ng-repeat="(key, value) in info.selectedItemInfo.data.items" ng-click="get_traks_album(value)">
+
+                <td> <p> {{value.name}} </p> </td>
+                <td><img ng-src="{{value.images[1].url}}"></td>
+
     </tr>
 
 </table>
