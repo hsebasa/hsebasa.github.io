@@ -1,4 +1,4 @@
-@import "utilities";
+@import "../utilities";
 
 
 .infoBoxHeader {
@@ -7,7 +7,7 @@
 
 
 .content-artist {
-  @include constant-properties-value((margin, paddding, border), 0);
+  @include asign-constant-properties-value((margin, paddding, border), 0);
   overflow-y: scroll;
   width: 550px;
 
@@ -45,7 +45,6 @@
   }
 
   tr p {
-    @include not-overlapping-text();
     font-family: Arial Black,Arial Bold,Gadget,sans-serif;
     font-style: normal;
     font-variant: normal;
@@ -76,7 +75,7 @@
 
 
 .header {
-  @include constant-properties-value((margin, paddding, border), 0);
+  @include asign-constant-properties-value((margin, paddding, border), 0);
   position: relative;
 
   h2 {

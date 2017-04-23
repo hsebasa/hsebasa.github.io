@@ -42,7 +42,7 @@
   font-size: 18px;
 }
 
-@mixin constant-properties-value($properties, $value){
+@mixin asign-constant-properties-value($properties, $value){
   @each $prop in $properties {
     #{$prop}: $value;
   }
