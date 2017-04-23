@@ -28,13 +28,11 @@ $box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-wi
     cursor:pointer;
   }
   span {
+    @include not-overlapping-text();
     padding-top: 15px;
     padding-left: 8px;
     display: inline-block;
     width: calc(#{$box-width} - 20px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   img {
     @include symmetric-rounded-border(4px);
