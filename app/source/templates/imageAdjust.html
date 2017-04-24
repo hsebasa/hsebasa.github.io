@@ -1,13 +1,18 @@
-<div ng-style="{width: width, height: height, overflow: 'hidden', display: 'block'}"
+<div ng-style="{width: pf(width) + 'px', height: pf(height) + 'px', overflow: 'hidden', display: 'block'}"
      ng-class="{true: 'defaultImage'}[isDefaultImage]">
 
-    <img ng-if="pf(image2Draw.width)/pf(image2Draw.height) <= pf(width)/pf(height)"
+    <img ng-if="isHigherImage"
          class="higherImage"
+         ng-style="{'margin-left': marginLeft, 'margin-top': marginTop}"
          ng-src={{image2Draw.url}}>
 
-    <img ng-if="pf(image2Draw.width)/pf(image2Draw.height) > pf(width)/pf(height)"
+    <img ng-if="isWiderImage"
          class="widerImage"
-         ng-style="{'margin-left': ((pf(width)-pf(image2Draw.width)*pf(height)/pf(image2Draw.height))/2) + 'px'}"
+         ng-style="{'margin-left': marginLeft, 'margin-top': marginTop}"
          ng-src={{image2Draw.url}}>
 
+    <img ng-if="sameRatioImage"
+         class="sameRatioImage"
+         ng-style="{'margin-left': marginLeft, 'margin-top': marginTop}"
+         ng-src={{image2Draw.url}}>
 </div>
