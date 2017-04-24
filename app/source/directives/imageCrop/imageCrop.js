@@ -6,7 +6,8 @@ angular.module('musicApp.directives')
             width: '@',
             height: '@',
             imageProperties: '=',
-            defaultImage: '='
+            defaultImage: '=',
+            draggable: '=?'
         },
         link: function($scope){
             $scope.pf = parseFloat;
