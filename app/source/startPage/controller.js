@@ -17,6 +17,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
     self.progress = 0;
     self.firstSearch = false;
 
+
     self.States = {
         noSearch: 'noSearch',
         noResults: 'noResults',

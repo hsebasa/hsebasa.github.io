@@ -7,6 +7,10 @@ angular.module('musicApp.resources', [])
         url_token : 'https://accounts.spotify.com/api/token',
         client_id : 'c9557aed41e6498f959c37e99a986da5',
         client_key : '28c47f8c14a74d70ae3133bc928fd020',
+        limitSearch: 20,
+        offsetAlbums: 0,
+        offsetArtists: 0,
+        offsetTracks: 0,
 
         request: function (endpoint, method, data, headers, callback, progressHandler) {
 
@@ -32,7 +36,7 @@ angular.module('musicApp.resources', [])
             
         get_album_by_name : function (album_name, callback, progressHandler) {
             new_name = encodeURI(album_name, "UTF-8");
-            url = this.url_api + '/v1/search?q=' + new_name +'&type=album';
+            url = this.url_api + '/v1/search?q=' + new_name +'&type=album' + '&limit=' + this.limitSearch;
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
 
@@ -44,7 +48,7 @@ angular.module('musicApp.resources', [])
 
         get_artist_by_name : function (artist_name, callback, progressHandler) {
             new_name = encodeURI(artist_name, "UTF-8");
-            url = this.url_api + '/v1/search?q=' + new_name +'&type=artist';
+            url = this.url_api + '/v1/search?q=' + new_name +'&type=artist' + '&limit=' + this.limitSearch;
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
 
@@ -56,13 +60,13 @@ angular.module('musicApp.resources', [])
 
         get_playlist_by_name : function (playlist_name, callback, progressHandler) {
             new_name = encodeURI(playlist_name, "UTF-8");
-            url = this.url_api + '/v1/search?q=' + new_name +'&type=playlist';
+            url = this.url_api + '/v1/search?q=' + new_name +'&type=playlist' + '&limit=' + this.limitSearch;
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
 
         get_track_by_name : function (track_name, callback, progressHandler) {
             new_name= encodeURI(track_name, "UTF-8");
-            url = this.url_api + '/v1/search?q=' + new_name +'&type=track';
+            url = this.url_api + '/v1/search?q=' + new_name +'&type=track' + '&limit=' + this.limitSearch;
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
 
