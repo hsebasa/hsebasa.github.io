@@ -1,3 +1,17 @@
-<div>
-    <span>{{ info.selectedItem.name }} </span>
+<div class="header">
+    <adjust-image image-properties="info.selectedItem.images[0]"
+                  default-image="{width: '282px', height: '393px', url: 'http://app.siteland.es/wp-content/uploads/2013/07/imagen_corporativa.jpg'}"
+                  width="550px" height="250px">
+    </adjust-image>
+
+    <p> {{ info.selectedItem.name }} </p>
+
+    <h2>Tracks</h2>
+</div>
+
+<div class="content-album niceScrollbar">
+    <div ng-repeat="(i, value) in info.selectedItemInfo.data.items">
+        <h2> {{value.name}} </h2>
+        <p>{{value.duration_ms | date:'mm:ss'}}</p>
+    </div>
 </div>
