@@ -9,7 +9,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
     });
 
 }])
-.controller('startPageCtrl', ['globalData', '$mdDialog', '$http', '$scope', '$timeout', function(globalData, $mdDialog, $http, $scope, $timeout) {
+.controller('startPageCtrl', ['globalData', '$mdDialog', '$http', '$scope', '$timeout', '$scope', function(globalData, $mdDialog, $http, $scope, $timeout, $window) {
     var self = this;
 
     self.spotifyApi = globalData;
@@ -97,8 +97,10 @@ angular.module('musicApp.startPage', ['ngRoute'])
                                 preserveScope: false,
                                 plain: true,
                                 templateUrl: 'templates/' + 'album' + 'Page.html'
-                                })
+                                });
             }
+        } else if (type == 'album'){
+            self.spotifyApi.get_tracks_by_album(selectedItem.id, info.selectedItemInfo, self.progressUpdate);
         }
 
         newScope.info = info;
