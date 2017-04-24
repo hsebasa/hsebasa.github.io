@@ -2,6 +2,7 @@
 .draggable {
 
   overflow: hidden;
+  cursor: move;
   * {
     user-drag: none;
     overflow: hidden;
