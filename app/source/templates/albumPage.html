@@ -16,6 +16,6 @@
 <div class="content-album niceScrollbar">
     <div ng-repeat="(i, value) in info.selectedItemInfo.data.tracks.items">
         <h2> {{value.name}} </h2>
-        <span>{{value.duration_ms | date:'mm:ss'}}</span>
+        <p>{{value.duration_ms | date:'mm:ss'}}</p>
     </div>
 </div>

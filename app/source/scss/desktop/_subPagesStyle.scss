@@ -125,7 +125,7 @@
     font-size: 15px;
   }
 
-  span {
+  p {
     @include not-overlapping-text();
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-style: normal;
@@ -155,7 +155,7 @@
     font-size: 15px;
   }
 
-  span {
+  p {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-style: normal;
     font-variant: normal;
