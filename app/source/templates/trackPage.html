@@ -10,10 +10,10 @@
     <h2>Track</h2>
 </div>
 
-<div class="content-album niceScrollbar">
+<div class="content-track niceScrollbar">
     <h2>{{ info.selectedItem.name }} </h2>
-    <p>Artist: {{info.selectedItem.artists[0].name}}</p>
-    <p>Duration: {{info.selectedItem.duration_ms | date:'mm:ss'}}</p>
-    <p>Track Number: {{info.selectedItem.track_number}}</p>
-    <p>Album: {{info.selectedItem.album.name }}</p>
+    <span>Artist: {{info.selectedItem.artists[0].name}}</span>
+    <span>Duration: {{info.selectedItem.duration_ms | date:'mm:ss'}}</span>
+    <span>Track Number: {{info.selectedItem.track_number}}</span>
+    <span>Album: {{info.selectedItem.album.name }}</span>
 </div>

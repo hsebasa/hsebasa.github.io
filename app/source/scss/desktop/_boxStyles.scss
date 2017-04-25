@@ -28,7 +28,7 @@ $box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-wi
     cursor:pointer;
   }
   span {
-    @include not-overlapping-text();
+    @extend .not-overlapping-text;
     padding-top: 15px;
     padding-left: 8px;
     display: inline-block;

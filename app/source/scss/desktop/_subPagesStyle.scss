@@ -114,6 +114,7 @@
   overflow-y: scroll;
 
   h2 {
+    width: 500px;
     font-family: Century Gothic, sans-serif;
     font-style: normal;
     font-variant: normal;
@@ -124,7 +125,8 @@
     font-size: 15px;
   }
 
-  p {
+  span {
+    @extend .not-overlapping-text;
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-style: normal;
     font-variant: normal;
@@ -153,7 +155,7 @@
     font-size: 15px;
   }
 
-  p {
+  span {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-style: normal;
     font-variant: normal;
