@@ -42,11 +42,29 @@ $box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-wi
 .searchResults {
   display: block;
   margin-left: $box-lateral;
+
+  button {
+
+    $border-radius: 100px;
+    $input-width: 400px;
+    display: inline-block;
+    @include symmetric-rounded-border($border-radius);
+    width: 70px;
+    height: 27px;
+    background-color: #d05d84;
+    color: white;
+    padding: 0px;
+    margin: 25px 15px 15px 15px;
+
+  }
+
 }
+
 
 .infoBoxAlbum {
   display: inline;
   text-align: center;
   width: 200px;
 }
+
 

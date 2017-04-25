@@ -35,6 +35,10 @@
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </artist-info-box>
+                <div>
+                    <button ng-disabled="ctrl.disablePreviousAtists()" ng-show="ctrl.spotifyApi.results.artists.json_data.length > 0" ng-click="ctrl.previousAtists()">&laquo;</button>
+                    <button ng-disabled="ctrl.disableNextArtist()" ng-show="ctrl.spotifyApi.results.artists.json_data.length > 0" ng-click="ctrl.nextArtists()">&raquo;</button>
+                </div>
             </span>
             <span class="searchResults">
                 <h1 ng-show="ctrl.spotifyApi.results.tracks.json_data.length > 0">
@@ -45,6 +49,8 @@
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </track-info-box>
+                <button  ng-show="ctrl.spotifyApi.results.tracks.json_data.length > 0" ng-click="">&laquo;</button>
+                <button  ng-show="ctrl.spotifyApi.results.tracks.json_data.length > 0" ng-click="">&raquo;</button>
             </span>
             <span class="searchResults">
                 <h1 ng-show="ctrl.spotifyApi.results.albums.json_data.length > 0">
@@ -55,6 +61,8 @@
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </album-info-box>
+                <button  ng-show="ctrl.spotifyApi.results.albums.json_data.length > 0" ng-click="">&laquo;</button>
+                <button  ng-show="ctrl.spotifyApi.results.albums.json_data.length > 0" ng-click="">&raquo;</button>
             </span>
         </div>
     </div>

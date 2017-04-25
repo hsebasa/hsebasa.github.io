@@ -17,6 +17,11 @@ angular.module('musicApp.startPage', ['ngRoute'])
     self.progress = 0;
     self.firstSearch = false;
 
+    self.setAllDefault = function () {
+        this.spotifyApi.offsetArtists = 0;
+        this.spotifyApi.offsetAlbums = 0;
+        this.spotifyApi.offsetTracks = 0;
+    };
 
     self.States = {
         noSearch: 'noSearch',
@@ -26,10 +31,32 @@ angular.module('musicApp.startPage', ['ngRoute'])
     };
     self.state = self.States.noSearch;
 
+
+    self.nextArtists = function () {
+            this.spotifyApi.offsetArtists += this.spotifyApi.limitSearch;
+            globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
+    };
+
+    self.previousAtists =  function(){
+            this.spotifyApi.offsetArtists -=  this.spotifyApi.limitSearch;
+            globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
+    };
+
+    self.disableNextArtist = function () {
+        return !(this.spotifyApi.results.artists.json_data.length > 0 && this.spotifyApi.results.artists.json_data.length == this.spotifyApi.limitSearch)
+    };
+
+    self.disablePreviousAtists =function () {
+        return (this.spotifyApi.offsetArtists - this.spotifyApi.limitSearch) < 0;
+    };
+
+
     self.progressUpdate = function(progress){
         self.progress = 100.0 * progress.loaded / progress.total;
     };
+    
     self.search = function(){
+        self.setAllDefault();
         self.state = self.States.searching;
         self.firstSearch = true;
         $('html,body').animate(
@@ -91,7 +118,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
 
                 console.log('entreeee');
                 console.log(self);
-                self.spotifyApi.get_tracks_by_album(album.id, album_info.selectedItemInfo, self.progressUpdate);
+                self.spotifyApi.get_album_by_id(album.id, album_info.selectedItemInfo, self.progressUpdate);
 
                 $mdDialog.show({clickOutsideToClose: true,
                                 scope: trackScope,        // use parent scope in template
@@ -101,7 +128,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
                                 });
             }
         } else if (type == 'album'){
-            self.spotifyApi.get_tracks_by_album(selectedItem.id, info.selectedItemInfo, self.progressUpdate);
+            self.spotifyApi.get_album_by_id(selectedItem.id, info.selectedItemInfo, self.progressUpdate);
         }
 
         newScope.info = info;

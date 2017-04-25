@@ -7,10 +7,11 @@ angular.module('musicApp.resources', [])
         url_token : 'https://accounts.spotify.com/api/token',
         client_id : 'c9557aed41e6498f959c37e99a986da5',
         client_key : '28c47f8c14a74d70ae3133bc928fd020',
-        limitSearch: 20,
+        limitSearch: 8,
         offsetAlbums: 0,
         offsetArtists: 0,
         offsetTracks: 0,
+
 
         request: function (endpoint, method, data, headers, callback, progressHandler) {
 
@@ -34,9 +35,9 @@ angular.module('musicApp.resources', [])
 
         },
             
-        get_album_by_name : function (album_name, callback, progressHandler) {
+        get_albums_by_name : function (album_name, callback, progressHandler) {
             new_name = encodeURI(album_name, "UTF-8");
-            url = this.url_api + '/v1/search?q=' + new_name +'&type=album' + '&limit=' + this.limitSearch;
+            url = this.url_api + '/v1/search?q=' + new_name +'&type=album' + '&limit=' + this.limitSearch + '&offset=' + this.offsetAlbums;
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
 
@@ -46,9 +47,9 @@ angular.module('musicApp.resources', [])
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
 
-        get_artist_by_name : function (artist_name, callback, progressHandler) {
+        get_artists_by_name : function (artist_name, callback, progressHandler) {
             new_name = encodeURI(artist_name, "UTF-8");
-            url = this.url_api + '/v1/search?q=' + new_name +'&type=artist' + '&limit=' + this.limitSearch;
+            url = this.url_api + '/v1/search?q=' + new_name +'&type=artist' + '&limit=' + this.limitSearch + '&offset=' + this.offsetArtists;
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
 
@@ -64,9 +65,9 @@ angular.module('musicApp.resources', [])
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
 
-        get_track_by_name : function (track_name, callback, progressHandler) {
+        get_tracks_by_name : function (track_name, callback, progressHandler) {
             new_name= encodeURI(track_name, "UTF-8");
-            url = this.url_api + '/v1/search?q=' + new_name +'&type=track' + '&limit=' + this.limitSearch;
+            url = this.url_api + '/v1/search?q=' + new_name +'&type=track' + '&limit=' + this.limitSearch + '&offset=' + this.offsetTracks;
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
 
@@ -81,6 +82,8 @@ angular.module('musicApp.resources', [])
             url = this.url_api + '/v1/albums/' + new_name + '/tracks';
             this.request(url, 'GET', {}, {}, callback, progressHandler);
         },
+
+
 
         get_albums_by_artist : function (artist_id, callback, progressHandler) {
             new_name = encodeURI(artist_id, "UTF-8");
@@ -162,9 +165,9 @@ angular.module('musicApp.resources', [])
                 return ;
             }
             
-            this.get_album_by_name(item, this.albums_info, progressHandler);
-            this.get_artist_by_name(item, this.artists_info, progressHandler);
-            this.get_track_by_name(item, this.tracks_info, progressHandler);
+            this.get_albums_by_name(item, this.albums_info, progressHandler);
+            this.get_artists_by_name(item, this.artists_info, progressHandler);
+            this.get_tracks_by_name(item, this.tracks_info, progressHandler);
 
             this.results = {'albums': self.albums_info,
                             'artists': self.artists_info,
@@ -173,8 +176,9 @@ angular.module('musicApp.resources', [])
                 finishedHandler(this.results);
             }
         },
-        results: {'albums': [],
-                  'artists': [],
-                  'tracks': []}
+
+        results: {'albums': {json_data:[]},
+                  'artists': {json_data:[]},
+                  'tracks': {json_data:[]}}
     }
 }]);
