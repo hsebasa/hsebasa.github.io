@@ -22,7 +22,7 @@
   background-color: #b2455d;
 }
 
-@mixin not-overlapping-text {
+.not-overlapping-text {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
