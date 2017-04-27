@@ -10,7 +10,7 @@
 
     <div ng-controller="startPageCtrl as ctrl" ng-init="ctrl.focus()">
         <div id="searchBar">
-            <input ng-keypress="ctrl.pressedKey($event)" id="searchBarInput" ng-model="ctrl.searchText" type="text">
+            <input ng-keypress="ctrl.pressedKey($event)" id="searchBarInput" ng-model="ctrl.searchText" type="text" placeholder="Search for artist, track or album title">
             <button ng-click="ctrl.search()">Search</button>
         </div>
 
@@ -36,8 +36,8 @@
                         information="item">
                 </artist-info-box>
                 <div>
-                    <button ng-disabled="ctrl.disablePreviousAtists()" ng-show="ctrl.spotifyApi.results.artists.json_data.length > 0" ng-click="ctrl.previousAtists()">&laquo;</button>
-                    <button ng-disabled="ctrl.disableNextArtist()" ng-show="ctrl.spotifyApi.results.artists.json_data.length > 0" ng-click="ctrl.nextArtists()">&raquo;</button>
+                    <button ng-disabled="ctrl.disablePreviousPage('Artists')" ng-show="ctrl.spotifyApi.results.artists.json_data.length > 0" ng-click="ctrl.previousPage('Artists')">&laquo;</button>
+                    <button ng-disabled="ctrl.disableNextPage('Artists')" ng-show="ctrl.spotifyApi.results.artists.json_data.length > 0" ng-click="ctrl.nextPage('Artists')">&raquo;</button>
                 </div>
             </span>
             <span class="searchResults">
@@ -49,8 +49,10 @@
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </track-info-box>
-                <button  ng-show="ctrl.spotifyApi.results.tracks.json_data.length > 0" ng-click="">&laquo;</button>
-                <button  ng-show="ctrl.spotifyApi.results.tracks.json_data.length > 0" ng-click="">&raquo;</button>
+                <div>
+                    <button ng-disabled="ctrl.disablePreviousPage('Tracks')" ng-show="ctrl.spotifyApi.results.tracks.json_data.length > 0" ng-click="ctrl.previousPage('Tracks')">&laquo;</button>
+                    <button ng-disabled="ctrl.disableNextPage('Tracks')" ng-show="ctrl.spotifyApi.results.tracks.json_data.length > 0" ng-click="ctrl.nextPage('Tracks')">&raquo;</button>
+                </div>
             </span>
             <span class="searchResults">
                 <h1 ng-show="ctrl.spotifyApi.results.albums.json_data.length > 0">
@@ -61,8 +63,10 @@
                         set-selected-item="showView(itemInfo, type)"
                         information="item">
                 </album-info-box>
-                <button  ng-show="ctrl.spotifyApi.results.albums.json_data.length > 0" ng-click="">&laquo;</button>
-                <button  ng-show="ctrl.spotifyApi.results.albums.json_data.length > 0" ng-click="">&raquo;</button>
+                <div>
+                    <button ng-disabled="ctrl.disablePreviousPage('Albums')" ng-show="ctrl.spotifyApi.results.albums.json_data.length > 0" ng-click="ctrl.previousPage('Albums')">&laquo;</button>
+                    <button ng-disabled="ctrl.disableNextPage('Albums')" ng-show="ctrl.spotifyApi.results.albums.json_data.length > 0" ng-click="ctrl.nextPage('Albums')">&raquo;</button>
+                </div>
             </span>
         </div>
     </div>
