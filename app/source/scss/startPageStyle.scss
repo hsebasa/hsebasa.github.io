@@ -5,7 +5,7 @@ html, body {
   background-color: #333441;
 }
 
-$break-point-phones: 1000px;
+$break-point-phones: 800px;
 @media only screen and (min-width: $break-point-phones) {
   @import "desktop/startPage";
   @import "desktop/boxStyles";

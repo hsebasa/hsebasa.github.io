@@ -22,7 +22,8 @@ angular.module('musicApp.directives')
                 $scope.marginTop = 0;
             } else if ($scope.isHigherImage) {
                 $scope.marginLeft = 0;
-                $scope.marginTop = (2/5)*((height-parseFloat($scope.image2Draw.height)*width/parseFloat($scope.image2Draw.width))/2) + 'px';
+                $scope.marginTop = 0;
+                // $scope.marginTop = (2/5)*((height-parseFloat($scope.image2Draw.height)*width/parseFloat($scope.image2Draw.width))/2) + 'px';
             } else {
                 $scope.marginLeft = 0;
                 $scope.marginTop = 0;

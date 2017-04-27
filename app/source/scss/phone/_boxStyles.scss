@@ -10,12 +10,14 @@ $box-lateral: 4%;
 
 .infoBox {
   @include symmetric-rounded-border(4px);
+  $image-width: 25%;
   //@extend .constantBoxSize;
   display: block;
+  position: relative;
   background-color: white;
   margin-left: $box-horizontal-sep;
   width: $box-width - 2 * $box-lateral;
-  height: 250px;
+  height: $image-width;
   margin-top: 40px;
 
   //-webkit-box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
@@ -23,14 +25,18 @@ $box-lateral: 4%;
   //box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
 
   .adjustImage{
-    width: 150px;
-    height: 150px;
+    width: $image-width;
+    height: auto;
   }
   span {
     @include not-overlapping-text();
-    padding-top: 15px;
-    padding-left: 8px;
     position: absolute;
+    display: block;
+    top: 0;
+    width: calc(100% - #{$image-width});
+    left: $image-width;
+    padding-top: $image-width/5;
+    padding-left: 15px;
     //width: 50%;
   }
   img {
