@@ -1,8 +1,6 @@
-<div ng-class="{'defaultImage': isDefaultImage, 'adjustImage': !isDefaultImage}">
-    <touch2-scroll
-            draggable="draggable"
-            cstyle="{width: pf(width) + 'px', height: pf(height) + 'px', overflow: 'hidden', display: 'block'}">
-
+<!--<div ng-class="{'defaultImage': isDefaultImage, 'adjustImage': !isDefaultImage}">-->
+<div class="adjustImage">
+    <touch2-scroll draggable="draggable">
         <img ng-if="isHigherImage"
              class="higherImage"
              ng-style="{'margin-left': marginLeft, 'margin-top': marginTop}"

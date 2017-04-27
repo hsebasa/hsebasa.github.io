@@ -22,12 +22,16 @@ $box-lateral: 4%;
   //-moz-box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
   //box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
 
+  .adjustImage{
+    width: 150px;
+    height: 150px;
+  }
   span {
     @include not-overlapping-text();
     padding-top: 15px;
     padding-left: 8px;
     position: absolute;
-    width: 50px;
+    //width: 50%;
   }
   img {
     @include symmetric-rounded-border(4px);
@@ -50,7 +54,7 @@ $box-lateral: 4%;
     height: 27px;
     background-color: #d05d84;
     color: white;
-    padding: 0px;
+    padding: 0;
     margin: 25px 15px 15px 15px;
 
   }
