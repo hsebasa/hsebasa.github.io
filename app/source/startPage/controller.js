@@ -32,6 +32,28 @@ angular.module('musicApp.startPage', ['ngRoute'])
     self.state = self.States.noSearch;
 
 
+    self.nextPage = function (topic) {
+        var offset = 'offset' + topic;
+        this.spotifyApi[offset] += this.spotifyApi.limitSearch;
+        globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
+    };
+
+    self.previousPage =  function(topic){
+        var offset = 'offset' + topic;
+        this.spotifyApi[offset] -=  this.spotifyApi.limitSearch;
+        globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
+    };
+
+    self.disableNextPage = function (topic) {
+        var target = topic.toLowerCase();
+        return !(this.spotifyApi.results[target].json_data.length > 0 && this.spotifyApi.results[target].json_data.length == this.spotifyApi.limitSearch)
+    };
+
+    self.disablePreviousPage =function (topic) {
+        var offset = 'offset' + topic;
+        return (this.spotifyApi[offset] - this.spotifyApi.limitSearch) < 0;
+    };
+/*
     self.nextArtists = function () {
             this.spotifyApi.offsetArtists += this.spotifyApi.limitSearch;
             globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
@@ -49,7 +71,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
     self.disablePreviousAtists =function () {
         return (this.spotifyApi.offsetArtists - this.spotifyApi.limitSearch) < 0;
     };
-
+*/
 
     self.progressUpdate = function(progress){
         self.progress = 100.0 * progress.loaded / progress.total;
