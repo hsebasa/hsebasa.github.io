@@ -2,39 +2,36 @@
 @import "startPage";
 
 
-$box-width: 210px;
+$box-width: 100%;
 $box-horizontal-sep: 15px;
-$results-per-line: round(($results-width - $box-horizontal-sep)/($box-width + $box-horizontal-sep+10));
-$box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-width + $box-horizontal-sep))/2;
+$results-per-line: 1;
+$box-lateral: 4%;
 
 
 .infoBox {
   @include symmetric-rounded-border(4px);
   //@extend .constantBoxSize;
-  display: inline-block;
+  display: block;
   background-color: white;
   margin-left: $box-horizontal-sep;
-  width: $box-width;
+  width: $box-width - 2 * $box-lateral;
   height: 250px;
   margin-top: 40px;
 
-  -webkit-box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
-  -moz-box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
-  box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
+  //-webkit-box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
+  //-moz-box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
+  //box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
 
-
-  *{
-    cursor:pointer;
-  }
   span {
     @include not-overlapping-text();
     padding-top: 15px;
     padding-left: 8px;
-    display: inline-block;
-    width: calc(#{$box-width} - 20px);
+    position: absolute;
+    width: 50px;
   }
   img {
     @include symmetric-rounded-border(4px);
+    display: inline;
     filter: brightness(80%);
     overflow: hidden;
   }
@@ -47,7 +44,7 @@ $box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-wi
 
     $border-radius: 100px;
     $input-width: 400px;
-    display: inline-block;
+    display: block;
     @include symmetric-rounded-border($border-radius);
     width: 70px;
     height: 27px;

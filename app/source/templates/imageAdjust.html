@@ -1,4 +1,4 @@
-<div ng-class="{true: 'defaultImage'}[isDefaultImage]">
+<div ng-class="{'defaultImage': isDefaultImage, 'adjustImage': !isDefaultImage}">
     <touch2-scroll
             draggable="draggable"
             cstyle="{width: pf(width) + 'px', height: pf(height) + 'px', overflow: 'hidden', display: 'block'}">
