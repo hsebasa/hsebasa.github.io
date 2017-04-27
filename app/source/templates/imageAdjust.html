@@ -1,5 +1,4 @@
-<!--<div ng-class="{'defaultImage': isDefaultImage, 'adjustImage': !isDefaultImage}">-->
-<div class="adjustImage">
+<div ng-class="{'adjustImage defaultImage': isDefaultImage, 'adjustImage': !isDefaultImage}">
     <touch2-scroll draggable="draggable">
         <img ng-if="isHigherImage"
              class="higherImage"
