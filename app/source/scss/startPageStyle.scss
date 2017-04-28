@@ -16,5 +16,6 @@ $break-point-phones: 800px;
 @media only screen and (max-width: $break-point-phones) {
   @import "phone/startPage";
   @import "phone/boxStyles";
+  @import "phone/subPagesStyle";
 }
 

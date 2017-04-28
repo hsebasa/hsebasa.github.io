@@ -110,54 +110,27 @@ angular.module('musicApp.startPage', ['ngRoute'])
     $scope.showView = function (selectedItem, type){
         var info = {
             selectedItem: selectedItem,
-            selectedItemInfo: new function(){this.data={}; this.call=function(response){if (response.status == 200) {
+            selectedItemInfo: new function(){
+                this.data={}; this.call=function(response){if (response.status == 200) {
                 this.data = response.data;
             }else{
-                console.log('Ha ocurrido algun error, status: ' + response_status)
+                console.log('Ha ocurrido algun error, status: ' + response.status);
             }}},
             percentLoaded: 0
         };
         var newScope = $scope.$new(true);
+        newScope.get_tracks_album = function(album){return $scope.showView(album, 'album')};
 
         if (type == 'artist'){
             self.spotifyApi.get_albums_by_artist(selectedItem.id, info.selectedItemInfo, self.progressUpdate);
-
-            newScope.get_traks_album =  function (album) {
-
-                var album_info = {
-                                    selectedItem: album,
-                                    selectedItemInfo: new function(){this.data={}; this.call=function(response){if (response.status == 200) {
-                                        this.data = response.data;
-                                    }else{
-                                        console.log('Ha ocurrido algun error, status: ' + response_status)
-                                    }}},
-                                    percentLoaded: 0
-                                };
-
-                var trackScope = $scope.$new(true);
-
-                trackScope.info = album_info;
-
-                console.log('entreeee');
-                console.log(self);
-                self.spotifyApi.get_album_by_id(album.id, album_info.selectedItemInfo, self.progressUpdate);
-
-                $mdDialog.show({clickOutsideToClose: true,
-                                scope: trackScope,        // use parent scope in template
-                                preserveScope: false,
-                                plain: true,
-                                templateUrl: 'templates/' + 'album' + 'Page.html'
-                                });
-            }
         } else if (type == 'album'){
             self.spotifyApi.get_album_by_id(selectedItem.id, info.selectedItemInfo, self.progressUpdate);
         }
 
         newScope.info = info;
-        console.log('templates/' + type + 'Page.html');
         $mdDialog.show({
                 clickOutsideToClose: true,
-                scope: newScope,        // use parent scope in template
+                scope: newScope,
                 preserveScope: false,
                 plain: true,
                 templateUrl: 'templates/' + type + 'Page.html'
