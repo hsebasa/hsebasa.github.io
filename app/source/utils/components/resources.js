@@ -27,7 +27,6 @@ angular.module('musicApp.resources', [])
                     progress: progressHandler
                 }
             }).then(function (response) {
-                    console.log(callback);
                     callback.call(response);
                 }, function(response) {
                     console.log("Something went wrong");
@@ -147,7 +146,6 @@ angular.module('musicApp.resources', [])
         },
 
         playlists_info: new function playlists() {
-
             this.json_data = {};
 
             this.call = function (response){
