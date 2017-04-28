@@ -20,9 +20,11 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
-    "protractor": "^4.0.9"
+    "protractor": "^4.0.9",
+    "jasmine": "2.6.0"
   },
   "scripts": {
+    "test": "./node_modules/karma/bin/karma start karma.conf.js",
     "postinstall": "bower install",
     "update-deps": "npm update",
     "postupdate-deps": "bower update",

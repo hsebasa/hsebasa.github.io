@@ -100,11 +100,12 @@ angular.module('musicApp.resources', [])
 
         albums_info: new function albums() {
 
-            this.json_data = {};
+            this.json_data = [];
 
             this.call = function (response){
                 if (response.status == 200) {
                     this.json_data = response.data['albums'].items;
+
                 }else{
                     console.log('Ha ocurrido algun error, status: ' + response_status)
                 }
@@ -113,7 +114,7 @@ angular.module('musicApp.resources', [])
         },
 
         tracks_info: new function tracks() {
-            this.json_data = {};
+            this.json_data = [];
 
             this.call = function (response){
                 if (response.status == 200) {
@@ -127,7 +128,7 @@ angular.module('musicApp.resources', [])
 
         artists_info: new function artists() {
 
-            this.json_data = {};
+            this.json_data = [];
 
             this.call = function (response){
                 if (response.status == 200) {
@@ -141,7 +142,7 @@ angular.module('musicApp.resources', [])
 
         playlists_info: new function playlists() {
 
-            this.json_data = {};
+            this.json_data = [];
 
             this.call = function (response){
                 if (response.status == 200) {
@@ -172,6 +173,7 @@ angular.module('musicApp.resources', [])
             this.results = {'albums': self.albums_info,
                             'artists': self.artists_info,
                             'tracks': self.tracks_info};
+
             if (!!finishedHandler){
                 finishedHandler(this.results);
             }

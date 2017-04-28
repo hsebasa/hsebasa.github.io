@@ -90,6 +90,9 @@ angular.module('musicApp.startPage', ['ngRoute'])
     };
 
     self.finishedSearch = function(results){
+        console.log(results.artists);
+        console.log('asdasdasda')
+        console.log(self.spotifyApi.results.artists.json_data.length);
         if ((Object.keys(results.artists).length > 0) || (Object.keys(results.albums).length > 0) || (Object.keys(results.tracks).length > 0)){
             self.state = self.States.showingResults;
         } else {
