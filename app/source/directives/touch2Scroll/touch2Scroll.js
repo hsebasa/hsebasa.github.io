@@ -2,7 +2,7 @@
 
 angular.module('musicApp.directives')
 
-.directive('touch2Scroll', function(){
+.directive('touch2Scroll', ['$timeout', function($timeout){
     function link($scope, $element){
         var x = 0;
         var y = 0;
@@ -59,5 +59,5 @@ angular.module('musicApp.directives')
         transclude: true,
         link: link
     }
-})
+}])
 ;

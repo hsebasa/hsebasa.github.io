@@ -4,8 +4,8 @@
 
 $box-width: 210px;
 $box-horizontal-sep: 15px;
-$results-per-line: round(($results-width - $box-horizontal-sep)/($box-width + $box-horizontal-sep+10));
-$box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-width + $box-horizontal-sep))/2;
+//$results-per-line: round(($results-max-width - $box-horizontal-sep)/($box-width + $box-horizontal-sep+10));
+//$box-lateral: ($results-max-width - $box-horizontal-sep - $results-per-line*($box-width + $box-horizontal-sep))/2;
 
 
 .infoBox {
@@ -22,8 +22,11 @@ $box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-wi
   -moz-box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
   box-shadow: 0 0 22px 1px rgba(0,0,0,0.62);
 
-  filter: brightness(80%);
 
+  .adjustImage{
+    width: 210px;
+    height: 200px;
+  }
   *{
     cursor:pointer;
   }
@@ -36,12 +39,18 @@ $box-lateral: ($results-width - $box-horizontal-sep - $results-per-line*($box-wi
   }
   img {
     @include symmetric-rounded-border(4px);
+    filter: brightness(80%);
     overflow: hidden;
   }
 }
 .searchResults {
-  display: block;
-  margin-left: $box-lateral;
+  display: inline-block;
+  //margin-left: $box-lateral;
+  position: relative;
+  padding-left: 10%;
+  margin-left: auto;
+  margin-right: 5%;
+  //text-align: center;
 
   button {
 
