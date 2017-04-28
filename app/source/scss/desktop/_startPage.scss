@@ -102,6 +102,9 @@ $results-max-width: 1100px;
   #zeroResults, #noSearch{
     top: 100px;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     display: block;
     width: $magnify-width;
     opacity: 0.4;

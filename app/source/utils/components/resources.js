@@ -98,8 +98,7 @@ angular.module('musicApp.resources', [])
         },
 
 
-        albums_info: new function albums() {
-
+        albums_info: function albums(callback) {
             this.json_data = {};
 
             this.call = function (response){
@@ -108,11 +107,14 @@ angular.module('musicApp.resources', [])
                 }else{
                     console.log('Ha ocurrido algun error, status: ' + response_status)
                 }
+                if (!!callback){
+                    callback(response);
+                }
             }
 
         },
 
-        tracks_info: new function tracks() {
+        tracks_info: function tracks(callback) {
             this.json_data = {};
 
             this.call = function (response){
@@ -121,12 +123,14 @@ angular.module('musicApp.resources', [])
                 }else{
                     console.log('Ha ocurrido algun error, status: ' + response_status)
                 }
+                if (!!callback){
+                    callback(response);
+                }
             }
 
         },
 
-        artists_info: new function artists() {
-
+        artists_info: function artists(callback) {
             this.json_data = {};
 
             this.call = function (response){
@@ -134,6 +138,9 @@ angular.module('musicApp.resources', [])
                     this.json_data = response.data['artists'].items;
                 }else{
                     console.log('Ha ocurrido algun error, status: ' + response_status)
+                }
+                if (!!callback){
+                    callback(response);
                 }
             };
             
@@ -164,17 +171,29 @@ angular.module('musicApp.resources', [])
             if (item.length == 0){
                 return ;
             }
-            
-            this.get_albums_by_name(item, this.albums_info, progressHandler);
-            this.get_artists_by_name(item, this.artists_info, progressHandler);
-            this.get_tracks_by_name(item, this.tracks_info, progressHandler);
 
-            this.results = {'albums': self.albums_info,
-                            'artists': self.artists_info,
-                            'tracks': self.tracks_info};
-            if (!!finishedHandler){
-                finishedHandler(this.results);
+            var completed_request = 0;
+
+            function check_request(){
+                completed_request += 1;
+                if (completed_request >= 3){
+                    if (!!finishedHandler){
+                        finishedHandler(self.results);
+                    }
+                }
             }
+
+            var req_albums_info = new self.albums_info(check_request);
+            var req_artists_info = new self.artists_info(check_request);
+            var req_tracks_info = new self.tracks_info(check_request);
+
+            this.results = {'albums': req_albums_info,
+                            'artists': req_artists_info,
+                            'tracks': req_tracks_info};
+
+            this.get_albums_by_name(item, req_albums_info, progressHandler);
+            this.get_artists_by_name(item, req_artists_info, progressHandler);
+            this.get_tracks_by_name(item, req_tracks_info, progressHandler);
         },
 
         results: {'albums': {json_data:[]},
