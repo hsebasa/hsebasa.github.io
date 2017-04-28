@@ -197,8 +197,8 @@ angular.module('musicApp.resources', [])
             this.get_tracks_by_name(item, req_tracks_info, progressHandler);
         },
 
-        results: {'albums': {json_data:[]},
-                  'artists': {json_data:[]},
-                  'tracks': {json_data:[]}}
+        results: {'albums': {'json_data':[]},
+                  'artists': {'json_data':[]},
+                  'tracks': {'json_data':[]}}
     }
 }]);
