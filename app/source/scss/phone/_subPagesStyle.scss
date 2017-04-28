@@ -37,7 +37,7 @@
   }
 
   .adjustImage{
-    width: 100%;
+    width: 80vw;
     height: 40vh;
   }
 }
@@ -45,7 +45,7 @@
 .content-artist {
   @include asign-constant-properties-value((margin, paddding, border), 0);
   overflow-y: scroll;
-  width: 100%;
+  width: 80vw;
 
   h2 {
     font-size: 15px;
@@ -114,7 +114,7 @@
   @include asign-constant-properties-value((margin, paddding, border), 0);
   margin-top: 15px;
   overflow-y: scroll;
-  width: 100%;
+  width: 80vw;
 
   h2 {
     @include not-overlapping-text();
@@ -147,7 +147,7 @@
   @include asign-constant-properties-value((margin, paddding, border), 0);
   margin-top: 15px;
   overflow-y: scroll;
-  width: 100%;
+  width: 80vw;
 
   h2 {
     font-family: Century Gothic, sans-serif;
