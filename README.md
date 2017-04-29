@@ -13,7 +13,7 @@ URL [http://hsebasa.github.io/](http://hsebasa.github.io).
 
 To get started, you must install a recent version of node [nodejs](https://nodejs.org/es/) 
 and it's pakage manager [npm](https://www.npmjs.com/). Then you just have to clone this
-repository and __start__ the node server with the following command:
+repository and __start__ the node server by typing the following in a command prompt:
  
 ```
 npm start
