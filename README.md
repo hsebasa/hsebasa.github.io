@@ -40,7 +40,7 @@ Project
  |    |     +-- startPage          <- Start page
  |    |     +-- static             <- Static folder copied 'as is' into the build folder
  |    |     +-- templates          <- Aditional templates
- |    |     +-- utils              <- Project utils
+ |    |     +-- utils              <- Project utilities
  |    |     +-- app.js             <- Script that defines the angularjs application and scopes
  |    |     +-- index.html         <- Index 
  |    |
@@ -60,7 +60,7 @@ Project
 The application is developed in the folder __app/source/__, while
 __app/build/__ contains a 'compiled' version of the
 source. The _build_ folder is not ignored (it is commited) because
-it contains the published version on GitHub pages. The __index.html__
+it contains the version to publish on GitHub pages. The __index.html__
 contains a simple _Jekyll_ code that redirects to __app/build/__, so 
 __app/build/index.html__ can be accessed just typing 
 [http://hsebasa.github.io/](http://hsebasa.github.io).
@@ -74,7 +74,7 @@ can be found in __app/source/scss__.
 # Running the tests
 
 Some unitary tests written in [Jasmine](https://jasmine.github.io/)
-can be found in __app/tests__. To run them, just type on the prompt:
+can be found in __app/tests__. To run them, just type the following on a command prompt:
 
 ```
 npm test
