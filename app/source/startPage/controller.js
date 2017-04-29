@@ -18,9 +18,9 @@ angular.module('musicApp.startPage', ['ngRoute'])
     self.firstSearch = false;
 
     self.setAllDefault = function () {
-        this.spotifyApi.offsetArtists = 0;
-        this.spotifyApi.offsetAlbums = 0;
-        this.spotifyApi.offsetTracks = 0;
+        this.spotifyApi.offsetartists = 0;
+        this.spotifyApi.offsetalbums = 0;
+        this.spotifyApi.offsettracks = 0;
     };
 
     self.States = {
@@ -35,13 +35,13 @@ angular.module('musicApp.startPage', ['ngRoute'])
     self.nextPage = function (topic) {
         var offset = 'offset' + topic;
         this.spotifyApi[offset] += this.spotifyApi.limitSearch;
-        self.spotifyApi.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
+        self.spotifyApi.search(topic.toLowerCase(), self.searchText, self.progressUpdate);
     };
 
     self.previousPage =  function(topic){
         var offset = 'offset' + topic;
         this.spotifyApi[offset] -=  this.spotifyApi.limitSearch;
-        self.spotifyApi.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
+        self.spotifyApi.search(topic.toLowerCase(), self.searchText, self.progressUpdate);
     };
 
     self.disableNextPage = function (topic) {

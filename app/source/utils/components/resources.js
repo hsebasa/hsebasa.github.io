@@ -192,22 +192,34 @@ angular.module('musicApp.resources', [])
             this.get_albums_by_name(item, req_albums_info, progressHandler);
             this.get_artists_by_name(item, req_artists_info, progressHandler);
             this.get_tracks_by_name(item, req_tracks_info, progressHandler);
+
         },
 
         results: {'albums': {'json_data':[]},
                   'artists': {'json_data':[]},
                   'tracks': {'json_data':[]}},
 
-        search: function (item, topic, progressHandler, finishedHandler) {
 
-           var searchs =  {'albums': this.get_albums_by_name,
-                          'artists': this.get_artists_by_name,
-                          'tracks': this.get_tracks_by_name};
+        search: function (topic, item, progressHandler) {
 
-            searchs[topic](item, progressHandler, finishedHandler)
+            var self = this;
+
+            function asign_result() {
+                self.results[topic] = req_info;
+            }
+
+            if (topic == 'artists'){
+                var req_info = new self.artists_info(asign_result);
+                this.get_artists_by_name(item, req_info, progressHandler);
+            } else if (topic == 'tracks'){
+                var req_info = new self.tracks_info(asign_result);
+                this.get_tracks_by_name(item, req_info, progressHandler);
+            } else if (topic == 'albums'){
+                var req_info = new self.albums_info(asign_result);
+                this.get_albums_by_name(item, req_info, progressHandler);
+            }
 
         }
-
 
 
 
