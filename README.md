@@ -19,7 +19,7 @@ repository and __start__ the node server by typing the following in a command pr
 npm start
 ```
 
-This command installs the additional requirements, 'compiles' the project and starts
+This installs the additional requirements, 'compiles' the project and starts
 a local web server listening in the port 8000.
  
 # General structure of the project
