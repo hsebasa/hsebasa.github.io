@@ -34,8 +34,22 @@ describe("A suite", function() {
         });
 
         it('Should define atribute results', function() {
-            expect(factory.results.albums).toBe({'json_data': []});
+            expect(factory.results).toEqual(jasmine.objectContaining({'albums': {'json_data':[]},
+                'artists': {'json_data':[]},
+                'tracks': {'json_data':[]}}));
         });
+
+        it('Should define atribute results', function() {
+            expect(factory.results).toEqual({'albums': {'json_data':[]},
+                'artists': {'json_data':[]},
+                'tracks': {'json_data':[]}});
+        });
+
+
+
+
+
+
 
 
     });

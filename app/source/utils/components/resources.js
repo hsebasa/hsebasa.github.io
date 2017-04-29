@@ -197,6 +197,20 @@ angular.module('musicApp.resources', [])
 
         results: {'albums': {'json_data':[]},
                   'artists': {'json_data':[]},
-                  'tracks': {'json_data':[]}}
+                  'tracks': {'json_data':[]}},
+
+        search: function (item, topic, progressHandler, finishedHandler) {
+
+           var searchs =  {'albums': this.get_albums_by_name,
+                          'artists': this.get_artists_by_name,
+                          'tracks': this.get_tracks_by_name};
+
+            searchs[topic](item, progressHandler, finishedHandler)
+
+        }
+
+
+
+
     }
 }]);

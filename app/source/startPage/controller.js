@@ -35,13 +35,13 @@ angular.module('musicApp.startPage', ['ngRoute'])
     self.nextPage = function (topic) {
         var offset = 'offset' + topic;
         this.spotifyApi[offset] += this.spotifyApi.limitSearch;
-        globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
+        self.spotifyApi.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
     };
 
     self.previousPage =  function(topic){
         var offset = 'offset' + topic;
         this.spotifyApi[offset] -=  this.spotifyApi.limitSearch;
-        globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
+        self.spotifyApi.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
     };
 
     self.disableNextPage = function (topic) {
