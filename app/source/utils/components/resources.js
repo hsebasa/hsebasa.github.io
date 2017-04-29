@@ -176,6 +176,9 @@ angular.module('musicApp.resources', [])
             function check_request(){
                 completed_request += 1;
                 if (completed_request >= 3){
+                    self.results = {'albums': req_albums_info,
+                                    'artists': req_artists_info,
+                                    'tracks': req_tracks_info};
                     if (!!finishedHandler){
                         finishedHandler(self.results);
                     }
@@ -185,10 +188,6 @@ angular.module('musicApp.resources', [])
             var req_albums_info = new self.albums_info(check_request);
             var req_artists_info = new self.artists_info(check_request);
             var req_tracks_info = new self.tracks_info(check_request);
-
-            this.results = {'albums': req_albums_info,
-                            'artists': req_artists_info,
-                            'tracks': req_tracks_info};
 
             this.get_albums_by_name(item, req_albums_info, progressHandler);
             this.get_artists_by_name(item, req_artists_info, progressHandler);
