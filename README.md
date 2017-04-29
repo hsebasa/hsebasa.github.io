@@ -1,4 +1,4 @@
-# About
+# The music search project
 
 This is a very basic example project of how to use the 
 [Spotify Api](https://developer.spotify.com/web-api/) to search
