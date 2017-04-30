@@ -59,13 +59,13 @@ describe("A suite", function() {
                 $httpBackend = $injector.get('$httpBackend');
                 // backend definition common for all tests
                 albumsRequestHandler = $httpBackend.when('GET', get_albums)
-                    .respond({Response: 'data'});
+                    .respond({albums: {items: ['album1', 'album2']}});
 
                 artistsRequestHandler = $httpBackend.when('GET', get_artists)
-                    .respond({Response: 'data'});
+                    .respond({artists: {items: ['artist1', 'artist2']}});
 
                 tracksRequestHandler = $httpBackend.when('GET', get_tracks)
-                    .respond({Response: 'data'});
+                    .respond({tracks: {items: ['track1', 'track2']}});
 
             }));
 
@@ -137,7 +137,20 @@ describe("A suite", function() {
                 $httpBackend.flush();
                 expect(mycallback.response).toBeDefined();
                 expect(mycallback.response.status).toEqual(200);
-            })
+            });
+
+            it('should Search function works fine!', function () {
+                $httpBackend.expectGET(get_albums);
+                $httpBackend.expectGET(get_artists);
+                $httpBackend.expectGET(get_tracks);
+
+                factory.search_item('a', function(){}, function (){});
+                $httpBackend.flush();
+                expect(factory.results.albums.json_data).toEqual(['album1', 'album2']);
+                expect(factory.results.artists.json_data).toEqual(['artist1', 'artist2']);
+                expect(factory.results.tracks.json_data).toEqual(['track1', 'track2']);
+
+            });
 
         });
 
