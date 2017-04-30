@@ -9,9 +9,11 @@ describe("A suite", function() {
     // Factory of interest is called globalData
     describe('factory: globalData', function() {
         var factory = null;
+
         beforeEach(inject(function(globalData) {
             factory = globalData;
         }));
+
 
         it('Should define atribute limitSearch', function() {
             expect(factory.limitSearch).toBe(8);
@@ -46,11 +48,98 @@ describe("A suite", function() {
         });
 
 
+        describe('Spotify requests', function () {
+
+            var albumsRequestHandler, artistsRequestHandler, tracksRequestHandler, $httpBackend;
+            var get_albums = 'https://api.spotify.com/v1/search?q=a&type=album&limit=8&offset=0';
+            var get_artists = 'https://api.spotify.com/v1/search?q=a&type=artist&limit=8&offset=0';
+            var get_tracks =  'https://api.spotify.com/v1/search?q=a&type=track&limit=8&offset=0';
+
+            beforeEach(inject(function($injector) {                // Set up the mock http service responses
+                $httpBackend = $injector.get('$httpBackend');
+                // backend definition common for all tests
+                albumsRequestHandler = $httpBackend.when('GET', get_albums)
+                    .respond({Response: 'data'});
+
+                artistsRequestHandler = $httpBackend.when('GET', get_artists)
+                    .respond({Response: 'data'});
+
+                tracksRequestHandler = $httpBackend.when('GET', get_tracks)
+                    .respond({Response: 'data'});
+
+            }));
+
+            it('should fetch albums request', function() {
+                $httpBackend.expectGET(get_albums);
+                var mycallback = {call: function (response) {
+                    this.response = response;
+                }};
+                factory.get_albums_by_name('a', mycallback, function(){});
+                $httpBackend.flush();
+            });
 
 
+            it('should fetch artists request', function() {
+                $httpBackend.expectGET(get_artists);
+                var mycallback = {call: function (response) {
+                    this.response = response;
+                }};
+                factory.get_artists_by_name('a', mycallback, function(){});
+                $httpBackend.flush();
+            });
 
+            it('should fetch tracks request', function() {
+                $httpBackend.expectGET(get_tracks);
+                var mycallback = {call: function (response) {
+                    this.response = response;
+                }};
+                factory.get_tracks_by_name('a', mycallback, function(){});
+                $httpBackend.flush();
+            });
 
+            it('Get Albums: should define response atribute on the callback', function () {
 
+                var mycallback = {call: function (response) {
+                                    this.response = response;
+                }};
+
+                $httpBackend.expectGET(get_albums);
+                expect(mycallback.response).toBeUndefined();
+                factory.get_albums_by_name('a', mycallback, function(){});
+                $httpBackend.flush();
+                expect(mycallback.response).toBeDefined();
+                expect(mycallback.response.status).toEqual(200);
+            });
+
+            it('Get Artists: should define response atribute on the callback', function () {
+
+                var mycallback = {call: function (response) {
+                    this.response = response;
+                }};
+
+                $httpBackend.expectGET(get_artists);
+                expect(mycallback.response).toBeUndefined();
+                factory.get_artists_by_name('a', mycallback, function(){});
+                $httpBackend.flush();
+                expect(mycallback.response).toBeDefined();
+                expect(mycallback.response.status).toEqual(200);
+            });
+
+            it('Get Tracks: should define response atribute on the callback', function () {
+
+                var mycallback = {call: function (response) {
+                    this.response = response;
+                }};
+
+                $httpBackend.expectGET(get_tracks);
+                expect(mycallback.response).toBeUndefined();
+                factory.get_tracks_by_name('a', mycallback, function(){});
+                $httpBackend.flush();
+                expect(mycallback.response).toBeDefined();
+                expect(mycallback.response.status).toEqual(200);
+            })
+
+        });
 
     });
 
