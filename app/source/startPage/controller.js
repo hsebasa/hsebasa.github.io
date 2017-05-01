@@ -53,25 +53,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
         var offset = 'offset' + topic;
         return (this.spotifyApi[offset] - this.spotifyApi.limitSearch) < 0;
     };
-/*
-    self.nextArtists = function () {
-            this.spotifyApi.offsetArtists += this.spotifyApi.limitSearch;
-            globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
-    };
 
-    self.previousAtists =  function(){
-            this.spotifyApi.offsetArtists -=  this.spotifyApi.limitSearch;
-            globalData.search_item(self.searchText, self.progressUpdate, self.finishedSearch);
-    };
-
-    self.disableNextArtist = function () {
-        return !(this.spotifyApi.results.artists.json_data.length > 0 && this.spotifyApi.results.artists.json_data.length == this.spotifyApi.limitSearch)
-    };
-
-    self.disablePreviousAtists =function () {
-        return (this.spotifyApi.offsetArtists - this.spotifyApi.limitSearch) < 0;
-    };
-*/
 
     self.progressUpdate = function(progress){
         self.progress = 100.0 * progress.loaded / progress.total;
@@ -114,7 +96,7 @@ angular.module('musicApp.startPage', ['ngRoute'])
                 this.data={}; this.call=function(response){if (response.status == 200) {
                 this.data = response.data;
             }else{
-                console.log('Ha ocurrido algun error, status: ' + response.status);
+                console.log('Something went wrong, status: ' + response.status);
             }}},
             percentLoaded: 0
         };

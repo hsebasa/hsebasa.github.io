@@ -105,7 +105,7 @@ angular.module('musicApp.resources', [])
                     this.json_data = response.data['albums'].items;
 
                 }else{
-                    console.log('Ha ocurrido algun error, status: ' + response_status)
+                    console.log('Something went wrong, status: ' + response_status)
                 }
                 if (!!callback){
                     callback(response);
@@ -121,7 +121,7 @@ angular.module('musicApp.resources', [])
                 if (response.status == 200) {
                     this.json_data = response.data['tracks'].items;
                 }else{
-                    console.log('Ha ocurrido algun error, status: ' + response_status)
+                    console.log('Something went wrong, status: ' + response_status)
                 }
                 if (!!callback){
                     callback(response);
@@ -137,7 +137,7 @@ angular.module('musicApp.resources', [])
                 if (response.status == 200) {
                     this.json_data = response.data['artists'].items;
                 }else{
-                    console.log('Ha ocurrido algun error, status: ' + response_status)
+                    console.log('Something went wrong, status: ' + response_status)
                 }
                 if (!!callback){
                     callback(response);
@@ -153,7 +153,7 @@ angular.module('musicApp.resources', [])
                 if (response.status == 200) {
                     this.json_data = response.data['playlists'].items;
                 }else{
-                    console.log('Ha ocurrido algun error, status: ' + response_status)
+                    console.log('Something went wrong, status: ' + response_status)
                 }
             }
 

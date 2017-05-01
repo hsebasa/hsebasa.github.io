@@ -1,5 +1,5 @@
 
-describe("A suite", function() {
+describe("suite tests", function() {
     beforeEach(module('musicApp.resources'));
 
     it("contains spec with an expectation", function() {
