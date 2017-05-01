@@ -16,7 +16,7 @@ and it's pakage manager [npm](https://www.npmjs.com/). Then you just have to clo
 repository and __start__ the node server by typing the following in a command prompt:
  
 ```
-npm start
+$ npm start
 ```
 
 This installs the additional requirements, 'compiles' the project and starts
@@ -77,5 +77,8 @@ Some unitary tests written in [Jasmine](https://jasmine.github.io/)
 can be found in __app/tests__. To run them, just type the following on a command prompt:
 
 ```
-npm test
+$ sudo npm start
+$ npm test
 ```
+
+First command is necesary to install required node packages.
