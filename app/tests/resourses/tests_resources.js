@@ -2,9 +2,6 @@
 describe("suite tests", function() {
     beforeEach(module('musicApp.resources'));
 
-    it("contains spec with an expectation", function() {
-        expect(true).toBe(true);
-    });
 
     // Factory of interest is called globalData
     describe('factory: globalData', function() {
